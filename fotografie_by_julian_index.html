@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fotografie by Julian — Essen & Umgebung</title>
+  <meta name="description" content="Portraits, Instagram-Bilder, Paarshootings, Hochzeiten & Tierfotografie in Essen und Umgebung. Fotografie by Julian" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f7f3ee;     /* warm beige background */
+      --card:#fff;      /* card bg */
+      --accent:#c9a77a; /* warm accent */
+      --muted:#7b6f66;  /* muted text */
+      --dark:#2b2b2b;   /* headings */
+      --radius:14px;
+      --max-width:1100px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      background:var(--bg);
+      color:var(--dark);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+
+    .container{max-width:var(--max-width);margin:0 auto;padding:28px}
+
+    /* header */
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:56px;height:56px;border-radius:50%;display:inline-grid;place-items:center;background:linear-gradient(135deg,var(--accent),#e7d9c9);font-weight:700;color:#fff;font-size:18px;box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    }
+    .site-title{font-weight:700;font-size:18px}
+    .site-sub{font-size:12px;color:var(--muted)}
+
+    nav a{margin-left:18px;text-decoration:none;color:var(--dark);font-weight:600}
+    nav a.cta{background:var(--accent);color:#fff;padding:8px 12px;border-radius:10px}
+
+    /* hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:40px 0}
+    .hero-left h1{margin:0;font-size:36px}
+    .hero-left p{color:var(--muted);margin-top:12px}
+    .hero-cta{margin-top:20px}
+    .btn{background:var(--accent);color:#fff;padding:12px 18px;border-radius:12px;border:0;font-weight:700;cursor:pointer}
+
+    /* gallery section */
+    .tabs{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0}
+    .tab{padding:8px 12px;border-radius:999px;background:transparent;border:1px solid rgba(43,43,43,0.06);cursor:pointer}
+    .tab.active{background:var(--accent);color:#fff;border-color:transparent}
+
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .card{background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,0.06)}
+    .card img{width:100%;height:220px;object-fit:cover;display:block}
+    .card .caption{padding:10px;font-weight:600}
+
+    /* responsive */
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:620px){
+      nav{display:none}
+      .grid{grid-template-columns:1fr}
+      .logo{width:48px;height:48px}
+      .hero-left h1{font-size:28px}
+    }
+
+    /* about / pricing / contact */
+    section{margin:40px 0}
+    .about-grid{display:grid;grid-template-columns:1fr 360px;gap:20px}
+    .bio{background:var(--card);padding:18px;border-radius:12px}
+    .prices{background:var(--card);padding:18px;border-radius:12px}
+    .price-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dashed rgba(43,43,43,0.04)}
+
+    /* contact */
+    .contact-form{background:var(--card);padding:18px;border-radius:12px}
+    .field{display:flex;flex-direction:column;margin-bottom:12px}
+    input,textarea{padding:10px;border-radius:8px;border:1px solid rgba(43,43,43,0.08);font-size:15px}
+
+    footer{padding:28px 0;color:var(--muted);font-size:14px}
+
+    /* lightbox modal */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:none;align-items:center;justify-content:center;padding:28px}
+    .modal img{max-width:94%;max-height:86%;border-radius:10px;box-shadow:0 12px 40px rgba(0,0,0,0.5)}
+    .modal .close{position:absolute;top:20px;right:28px;color:#fff;font-size:22px;background:transparent;border:0}
+
+    .small-muted{color:var(--muted);font-size:13px}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true">JF</div>
+        <div>
+          <div class="site-title">Fotografie by Julian</div>
+          <div class="site-sub">Essen & Umgebung</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#about">Über mich</a>
+        <a href="#preise">Preise</a>
+        <a href="#kontakt" class="cta">Kontakt</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-left">
+          <h1>Emotionale & natürliche Fotografie</h1>
+          <p class="small-muted">Portraits, Instagram-Bilder, Paarshootings, Hochzeiten und Tierfotografie — individuell, ehrlich, zeitlos.</p>
+          <div class="hero-cta">
+            <button class="btn" onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})">Jetzt anfragen</button>
+          </div>
+        </div>
+        <div>
+          <!-- Highlight images (replace with your hero images) -->
+          <div class="card" style="height:100%">
+            <img src="images/hero-placeholder.jpg" alt="Hero Bild - Platzhalter" />
+          </div>
+        </div>
+      </section>
+
+      <section id="portfolio">
+        <h2>Portfolio</h2>
+        <div class="tabs" role="tablist">
+          <button class="tab active" data-filter="all">Alle</button>
+          <button class="tab" data-filter="portraits">Portraits</button>
+          <button class="tab" data-filter="instagram">Instagram Bilder</button>
+          <button class="tab" data-filter="paar">Paarshootings</button>
+          <button class="tab" data-filter="hochzeiten">Hochzeiten</button>
+          <button class="tab" data-filter="tiere">Tiere</button>
+        </div>
+
+        <div class="grid" id="gallery">
+          <!-- Replace the src with your real images. Add data-category to filter -->
+          <div class="card" data-category="portraits"><img src="images/placeholder1.jpg" alt="Portrait 1" loading="lazy" onclick="openLightbox(this)"><div class="caption">Portrait</div></div>
+          <div class="card" data-category="instagram"><img src="images/placeholder2.jpg" alt="Instagram Bild" loading="lazy" onclick="openLightbox(this)"><div class="caption">Instagram Bild</div></div>
+          <div class="card" data-category="paar"><img src="images/placeholder3.jpg" alt="Paarshooting" loading="lazy" onclick="openLightbox(this)"><div class="caption">Paarshooting</div></div>
+          <div class="card" data-category="hochzeiten"><img src="images/placeholder4.jpg" alt="Hochzeit" loading="lazy" onclick="openLightbox(this)"><div class="caption">Hochzeit</div></div>
+          <div class="card" data-category="tiere"><img src="images/placeholder5.jpg" alt="Tierfoto" loading="lazy" onclick="openLightbox(this)"><div class="caption">Tier</div></div>
+          <div class="card" data-category="portraits"><img src="images/placeholder6.jpg" alt="Portrait 2" loading="lazy" onclick="openLightbox(this)"><div class="caption">Portrait</div></div>
+        </div>
+      </section>
+
+      <section id="about">
+        <h2>Über mich</h2>
+        <div class="about-grid">
+          <div class="bio">
+            <p>Hi — ich bin <strong>Julian</strong>. Ich fotografiere leidenschaftlich Menschen, Paare, Tiere und besondere Momente in Essen & Umgebung. Mein Stil ist natürlich, warm und unaufgeregt. Ich lege Wert auf entspannte Shootings und echte Emotionen.</p>
+            <p class="small-muted">Wenn du magst, schreib mir einfach — ich freue mich auf deine Nachricht!</p>
+          </div>
+
+          <aside>
+            <div class="prices">
+              <h3>Kurzpreise (Beispiel)</h3>
+              <div class="price-row"><div>Portrait (30 min)</div><div>€80</div></div>
+              <div class="price-row"><div>Paar (60 min)</div><div>€150</div></div>
+              <div class="price-row"><div>Hochzeit (Tag)</div><div>ab €900</div></div>
+              <div class="price-row"><div>Tier (45 min)</div><div>€100</div></div>
+              <p class="small-muted" style="margin-top:8px">Individuelle Pakete & Prints auf Anfrage.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="preise">
+        <h2>Preise</h2>
+        <div class="prices">
+          <p>Die oben stehenden Preise sind Beispielpreise. Wenn du konkrete Preise möchtest, nenne mir bitte: Dauer, Location (Essen oder weiter), und ob du Prints oder digitale Dateien möchtest. Ich erstelle dir ein individuelles Angebot.</p>
+        </div>
+      </section>
+
+      <section id="kontakt">
+        <h2>Kontakt</h2>
+        <div class="contact-form">
+          <!-- Note: This form uses mailto fallback. For production consider using Formspree, Netlify Forms or your hosting contact endpoint. -->
+          <form action="mailto:deine-email@example.com" method="post" enctype="text/plain" onsubmit="alert('Dieses Formular öffnet dein Mailprogramm. Für direkte Senden bitte E-Mail-Adresse eintragen.');">
+            <div class="field"><label>Name</label><input type="text" name="name" required></div>
+            <div class="field"><label>E-Mail</label><input type="email" name="email" required></div>
+            <div class="field"><label>Art des Shootings</label><select name="type"><option>Portrait</option><option>Instagram Bilder</option><option>Paarshooting</option><option>Hochzeit</option><option>Tier</option></select></div>
+            <div class="field"><label>Nachricht</label><textarea name="message" rows="6" required></textarea></div>
+            <div><button class="btn" type="submit">Anfrage senden</button></div>
+          </form>
+
+          <p class="small-muted" style="margin-top:12px">Oder direkt per E-Mail: <a href="mailto:deine-email@example.com">deine-email@example.com</a></p>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>© Fotografie by Julian — Essen & Umgebung</div>
+        <div class="small-muted">Socials: <span style="margin-left:8px">Instagram | Facebook</span></div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Lightbox modal -->
+  <div class="modal" id="lightbox" onclick="closeLightbox(event)">
+    <button class="close" onclick="closeLightbox(event)">✕</button>
+    <img src="" alt="" />
+  </div>
+
+  <script>
+    // Tabs / filtering
+    const tabs = document.querySelectorAll('.tab');
+    const cards = document.querySelectorAll('#gallery .card');
+    tabs.forEach(t => t.addEventListener('click', ()=>{
+      tabs.forEach(x=>x.classList.remove('active'));
+      t.classList.add('active');
+      const f = t.dataset.filter;
+      cards.forEach(c => {
+        if(f === 'all' || c.dataset.category === f){ c.style.display='block' }
+        else{ c.style.display='none' }
+      })
+    }))
+
+    // Lightbox functions
+    function openLightbox(img){
+      const modal = document.getElementById('lightbox');
+      const modalImg = modal.querySelector('img');
+      modalImg.src = img.src;
+      modalImg.alt = img.alt;
+      modal.style.display = 'flex';
+    }
+    function closeLightbox(e){
+      if(e.target.id === 'lightbox' || e.target.classList.contains('close')){
+        const modal = document.getElementById('lightbox');
+        modal.style.display='none';
+        modal.querySelector('img').src='';
+      }
+    }
+
+    // Accessibility: keyboard close
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape'){ document.getElementById('lightbox').style.display='none'; }})
+  </script>
+</body>
+</html>
